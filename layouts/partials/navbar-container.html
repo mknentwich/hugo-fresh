@@ -5,6 +5,7 @@
 {{ end }}
 {{- $navbarLogo     := .Site.Params.navbarlogo }}
 {{- $scores := .Site.Data.categories }}
+{{- $catFlat := .Site.Data.categoriesflat }}
 {{- $data := .Site.Data }}
 <div class="container">
     <div class="navbar-brand">
@@ -61,7 +62,7 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">{{ .title }}</a>
                 <div class="navbar-dropdown">
-                {{- partial "navbar-recursive-list.html" (index $data .data) }}
+                {{- partial "navbar-recursive-list.html" (dict "data" (index $data .data) "baseUrl" "/scores")}}
                 </div>
             </div>
         {{- else if .sublinks }}

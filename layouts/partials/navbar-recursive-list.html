@@ -1,8 +1,9 @@
-{{- range . }}
-<a class="navbar-item">{{ .name }}</a>
-  {{- if .children }}
-   <div style="margin-left: 0.47rem; transform: scale(0.90)">
-  {{- partial "navbar-recursive-list.html" .children }}
-   </div>
-  {{- end }}
+{{- $baseUrl := .baseUrl }}
+{{- range .data }}
+<a class="navbar-item" href="{{$baseUrl}}/{{.sanitizedName}}">{{ .name }}</a>
+{{- if .children }}
+<div style="margin-left: 0.47rem; transform: scale(0.90)">
+{{- partial "navbar-recursive-list.html" (dict "data" .children "baseUrl" (print $baseUrl "/" .sanitizedName)) }}
+</div>
+{{- end }}
 {{- end}}
