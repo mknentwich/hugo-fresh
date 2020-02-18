@@ -5,11 +5,12 @@
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     {{ partial "css.html" . }}
   </head>
-  <body>
+  <body class="bg">
     <!-- Preloader -->
     <div id="preloader">
       <div id="status"></div>
     </div>
+    <div class=""></div>
     {{- partial "navbar" . -}}
     {{ partial "navbar-clone.html" . }}
     {{ block "main" . }}{{ end }}
