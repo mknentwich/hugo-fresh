@@ -1,3 +1,18 @@
+{{ $meta := .Site.Params.meta }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="Title" content="{{ $meta.title }}"/>
+<meta name="Author" content="{{ delimit $meta.publishers ", "}}"/>
+<meta name="Publisher" content="{{ delimit $meta.authors ", "}}"/>
+<meta name="Copyright" content="© 2020"/>
+<meta name="Revisit" content="After {{ $meta.revisit }} days"/>
+<meta name="Keywords" content="{{ delimit $meta.keywords ", "}}"/>
+<meta name="Description" content="{{ $meta.description }}"/>
+<meta name="Abstract" content="{{ $meta.description }}"/>
+{{- range $meta.topics }}
+<meta name="page-topic" content="{{ . }}"/>
+{{- end}}
+<meta name="audience" content="{{ delimit $meta.audience ", "}}"/>
+<meta name="Robots" content="{{ $meta.robots }}"/>
+<meta name="Language" content="{{ $meta.language }}"/>
