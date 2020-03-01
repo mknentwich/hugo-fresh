@@ -105,7 +105,18 @@ Navbar
         }
     }
 }
-
+//place settings for the mobile view here
+@include touch {
+    .navbar-menu {
+        background-color: $blue-grey;
+    }
+    .navbar-item {
+        background: transparent !important;
+    }
+    .navbar-link {
+        background: transparent !important;
+    }
+}
 //Cloned fixed navbar
 #navbar-clone {
     position: fixed;
